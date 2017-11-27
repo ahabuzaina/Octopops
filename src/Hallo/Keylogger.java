@@ -4,25 +4,21 @@
  * and open the template in the editor.
  */
 package Hallo;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-
+import java.awt.event.KeyAdapter;
 /**
  *
  * @author Student
  */
-public class Keylogger implements KeyListener{
+public class Keylogger implements KeyListener {
     //where initialization occurs:
         typingArea = new JTextField(20);
         typingArea.addKeyListener(this);
 
-        //Uncomment this if you wish to turn off focus
-        //traversal.  The focus subsystem consumes
-        //focus traversal keys, such as Tab and Shift Tab.
-        //If you uncomment the following line of code, this
-        //disables focus traversal and the Tab events 
-        //become available to the key event listener.
-        //typingArea.setFocusTraversalKeysEnabled(false);
-    /** Handle the key typed event from the text field. */
     public void keyTyped(KeyEvent e) {
         displayInfo(e, "KEY TYPED: ");
     }
