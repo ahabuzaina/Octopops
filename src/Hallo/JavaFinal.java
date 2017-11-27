@@ -13,6 +13,7 @@ public class JavaFinal {
         frame.add(panel);
         frame.setSize(600,600);
         frame.setVisible(true);
+        
     }
     
 }
