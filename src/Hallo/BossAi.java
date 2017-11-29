@@ -31,26 +31,30 @@ public class BossAi {
         if (hp >= 300){
             //normal shite
             if (rngesus > 66){
-                
+                //move left by random number and shoot a bit
             }
             if (rngesus > 33 && rngesus <= 66){
-                
+                //move right by random number and shoot a bit
             }
             if (rngesus <= 33){
-                
+                //shoot a lot while stationary
             }
             
         }
         if (hp < 300 && hp > 0){
             //his enraged mode
-            if (rngesus > 66){
-                
+            /*
+            * if user fires at him, 50/50 chance of dodging left or right
+            * three types of firing
+            */
+            if (rngesus > 70){
+                //shots target user? or shotgun
             }
-            if (rngesus > 33 && rngesus <= 66){
-                
+            if (rngesus > 5 && rngesus <= 70){
+                // many normal shots
             }
-            if (rngesus <= 33){
-                
+            if (rngesus <= 5){
+                // super laser
             }
         }
         if (hp == 0){
