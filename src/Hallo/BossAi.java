@@ -11,5 +11,14 @@ package Hallo;
  * @author Student
  */
 public class BossAi {
-    
+    int hit = 0;
+    public int hp = 600;
+    public void hebehit()
+    {
+    if (hit == 1)
+        {
+        hp = hp-1;
+        hit = 0;
+        }
+    }
 }
