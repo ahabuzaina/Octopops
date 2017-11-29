@@ -26,12 +26,15 @@ public class BossAi {
     }
     public void pewpew(){
         if (hp >= 300){
+            //normal shite
             
         }
         if (hp < 300 && hp > 0){
+            //his enraged mode
             
         }
         if (hp == 0){
+            //he dead, return something so you can go to credits
             
         }
     }
