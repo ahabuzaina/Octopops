@@ -3,7 +3,13 @@ package Hallo;
  *
  * 
  */
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.awt.Image;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 public class JavaFinal 
 {
     public static void main(String[] args) {
@@ -13,7 +19,5 @@ public class JavaFinal
         frame.add(panel);
         frame.setSize(600,600);
         frame.setVisible(true);
-        
     }
-    
 }
