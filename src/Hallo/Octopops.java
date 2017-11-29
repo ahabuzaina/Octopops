@@ -14,21 +14,20 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
-public class images {
+public class Octopops {
     private int dx;
     private int dy;
     private int x;
     private int y;
     private Image image;
 
-    public images() {
-        
+    public Octopops() {
         character();
     }
     
     private void character() {
         
-        ImageIcon ii = new ImageIcon("craft.png");
+        ImageIcon ii = new ImageIcon("octopops.png");
         image = ii.getImage();
         x = 40;
         y = 60;        

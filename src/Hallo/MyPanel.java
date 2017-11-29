@@ -15,22 +15,16 @@ import java.awt.event.KeyAdapter;
  *
  * @author Student
  */
-class MyPanel extends JPanel implements KeyListener {
-    private char c = 'e';
-
-    public MyPanel() {
-        this.setPreferredSize(new Dimension(500, 500));
-        addKeyListener(this);
-    }
-
-
+public class MyPanel extends JPanel {
     
 
-    public static void main(String[] s) {
-        JFrame f = new JFrame();
-        f.getContentPane().add(new MyPanel());
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.pack();
-        f.setVisible(true);
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Gameeeee");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        MyPanel panel = new MyPanel();
+        frame.add(panel);
+        frame.pack();
+        frame.setSize(600,600);
+        frame.setVisible(true);
     }
 }

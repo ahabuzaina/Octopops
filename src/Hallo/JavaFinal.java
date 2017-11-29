@@ -11,6 +11,7 @@ public class JavaFinal
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MyPanel panel = new MyPanel();
         frame.add(panel);
+        frame.pack();
         frame.setSize(600,600);
         frame.setVisible(true);
         
