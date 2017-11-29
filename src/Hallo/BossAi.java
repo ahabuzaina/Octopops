@@ -11,14 +11,28 @@ package Hallo;
  * @author Student
  */
 public class BossAi {
-    int hit = 0;
+    public int hit = 0;
     public int hp = 600;
+    public void ishehit(){
+        
+    }
     public void hebehit()
     {
     if (hit == 1)
         {
         hp = hp-1;
         hit = 0;
+        }
+    }
+    public void pewpew(){
+        if (hp >= 300){
+            
+        }
+        if (hp < 300 && hp > 0){
+            
+        }
+        if (hp == 0){
+            
         }
     }
 }
