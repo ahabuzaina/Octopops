@@ -23,7 +23,6 @@ import javax.swing.Timer;
 public class DisplayingOctopops extends JPanel implements ActionListener {
     
     private Octopops Octopops;
-    private final int DELAY = 10;
 
     public DisplayingOctopops() {
         character();
@@ -31,15 +30,15 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     
     private void character() {
         
-        addKeyListener(new TAdapter());
+        addKeyListener(new Adapter());
         setFocusable(true);
         setBackground(Color.BLACK);
-
         Octopops = new Octopops();       
     }
 
 
     @Override
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -49,19 +48,17 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     }
     
     private void doDrawing(Graphics g) {
-    
     Graphics2D g2d = (Graphics2D) g;
-    g2d.drawImage(Octopops.getImage(), Octopops.getX(), Octopops.getY(), this);
+    g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500,this);
     }
      @Override
      
     public void actionPerformed(ActionEvent e) {
-        
         Octopops.move();
         repaint();  
     }
-    private class TAdapter extends KeyAdapter {
-
+    
+    private class Adapter extends KeyAdapter {
         @Override
         public void keyReleased(KeyEvent e) {
             Octopops.keyReleased(e);

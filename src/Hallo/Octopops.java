@@ -16,9 +16,7 @@ import javax.swing.ImageIcon;
 
 public class Octopops {
     private int dx;
-    private int dy;
     private int x;
-    private int y;
     private Image image;
 
     public Octopops() {
@@ -27,24 +25,18 @@ public class Octopops {
     
     private void character() {
         
-        ImageIcon ii = new ImageIcon("octopops.png");
-        image = ii.getImage();
-        x = 40;
-        y = 60;        
+        ImageIcon i = new ImageIcon("octopops.png");
+        image = i.getImage();
+        x = 40;       
     }
 
 
     public void move() {
         x += dx;
-        y += dy;
     }
 
     public int getX() {
         return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public Image getImage() {

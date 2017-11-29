@@ -23,7 +23,7 @@ public class MovingSprite extends JFrame {
         
         add(new DisplayingOctopops());
         
-        setSize(600, 600);
+        setSize(700, 700);
         setResizable(false);
         
         setTitle("Moving sprite");
@@ -35,11 +35,12 @@ public class MovingSprite extends JFrame {
         
         EventQueue.invokeLater(new Runnable() {
             @Override
+            
             public void run() {
                 
-                MovingSprite ex = new MovingSprite();
-                ex.setVisible(true);
-            }
-        });
-    }
+            MovingSprite ex = new MovingSprite();
+            ex.setVisible(true);
+}
+});
+}
 }
