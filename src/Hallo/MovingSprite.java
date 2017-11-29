@@ -23,7 +23,7 @@ public class MovingSprite extends JFrame {
         
         add(new DisplayingOctopops());
         
-        setSize(700, 700);
+        setSize(1500, 700);
         setResizable(false);
         
         setTitle("Moving sprite");

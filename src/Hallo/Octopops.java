@@ -27,7 +27,7 @@ public class Octopops {
         
         ImageIcon i = new ImageIcon("octopops.png");
         image = i.getImage();
-        x = 40;       
+        x = 90;       
     }
 
 

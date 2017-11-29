@@ -20,5 +20,7 @@ public class JavaFinal
         frame.pack();
         frame.setSize(600,600);
         frame.setVisible(true);
+        frame.setFocusable(true);
+        frame.setBackground(Color.BLACK);
     }
 }

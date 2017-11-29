@@ -23,9 +23,12 @@ import javax.swing.Timer;
 public class DisplayingOctopops extends JPanel implements ActionListener {
     
     private Octopops Octopops;
-
+    private Timer timer;
+    private final int DELAY = 10;
     public DisplayingOctopops() {
         character();
+        timer = new Timer(DELAY, this);
+        timer.start();
     }
     
     private void character() {
