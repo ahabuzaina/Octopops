@@ -16,8 +16,8 @@ import java.awt.event.KeyAdapter;
  */
 public class Keylogger implements KeyListener {
     //where initialization occurs:
-        typingArea = new JTextField(20);
-        typingArea.addKeyListener(this);
+        //typingArea = new JTextField(20);
+        //typingArea.addKeyListener(this);
 
     public void keyTyped(KeyEvent e) {
         displayInfo(e, "KEY TYPED: ");
