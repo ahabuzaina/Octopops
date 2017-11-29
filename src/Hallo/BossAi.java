@@ -5,6 +5,7 @@
  */
 
 package Hallo;
+import java.util.Random;
 
 /**
  *
@@ -13,6 +14,8 @@ package Hallo;
 public class BossAi {
     public int hit = 0;
     public int hp = 600;
+    Random rng = new Random();
+    private int rngesus = rng.nextInt(100);
     public void ishehit(){
         
     }
@@ -27,11 +30,28 @@ public class BossAi {
     public void pewpew(){
         if (hp >= 300){
             //normal shite
+            if (rngesus > 66){
+                
+            }
+            if (rngesus > 33 && rngesus <= 66){
+                
+            }
+            if (rngesus <= 33){
+                
+            }
             
         }
         if (hp < 300 && hp > 0){
             //his enraged mode
-            
+            if (rngesus > 66){
+                
+            }
+            if (rngesus > 33 && rngesus <= 66){
+                
+            }
+            if (rngesus <= 33){
+                
+            }
         }
         if (hp == 0){
             //he dead, return something so you can go to credits
