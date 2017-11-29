@@ -23,22 +23,8 @@ class MyPanel extends JPanel implements KeyListener {
         addKeyListener(this);
     }
 
-    public void addNotify() {
-        super.addNotify();
-        requestFocus();
-    }
 
-    public void paintComponent(Graphics g) {
-        g.clearRect(0, 0, getWidth(), getHeight());
-        g.drawString("Welcome to the Game", 250, 250);
-    }
-
-    public void keyPressed(KeyEvent e) { }
-    public void keyReleased(KeyEvent e) { }
-    public void keyTyped(KeyEvent e) {
-        c = e.getKeyChar();
-        repaint();
-    }
+    
 
     public static void main(String[] s) {
         JFrame f = new JFrame();
