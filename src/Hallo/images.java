@@ -23,10 +23,10 @@ public class images {
 
     public images() {
         
-        initCraft();
+        character();
     }
     
-    private void initCraft() {
+    private void character() {
         
         ImageIcon ii = new ImageIcon("craft.png");
         image = ii.getImage();
@@ -56,41 +56,28 @@ public class images {
 
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT) {
+        if (key == KeyEvent.VK_A) {
             dx = -1;
         }
 
-        if (key == KeyEvent.VK_RIGHT) {
+        if (key == KeyEvent.VK_D) {
             dx = 1;
         }
 
-        if (key == KeyEvent.VK_UP) {
-            dy = -1;
-        }
-
-        if (key == KeyEvent.VK_DOWN) {
-            dy = 1;
-        }
+       
     }
 
     public void keyReleased(KeyEvent e) {
         
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT) {
+        if (key == KeyEvent.VK_A) {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_RIGHT) {
+        if (key == KeyEvent.VK_D) {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_UP) {
-            dy = 0;
-        }
-
-        if (key == KeyEvent.VK_DOWN) {
-            dy = 0;
-        }
     }
 }
