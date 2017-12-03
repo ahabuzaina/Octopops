@@ -17,7 +17,7 @@ public class BossAi {
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     public void ishehit(){
-        
+        hit = 1;
     }
     public void hebehit()
     {
