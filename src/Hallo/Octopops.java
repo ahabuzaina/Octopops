@@ -32,7 +32,7 @@ public class Octopops {
 
 
     public void move() {
-        x += dx;
+        x += 4*dx;
     }
 
     public int getX() {
