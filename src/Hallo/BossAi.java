@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class BossAi extends Sprite{
     public int hit = 0;
-    public int hp = 600;
+    public int hp = 9001;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     
@@ -44,13 +44,13 @@ public class BossAi extends Sprite{
         if (hp >= 1){
             //normal shite
             if (rngesus > 66){
-                //move left by random number and shoot a bit
+                
             }
             if (rngesus > 33 && rngesus <= 66){
-                //move right by random number and shoot a bit
+                
             }
             if (rngesus <= 33){
-                //shoot a lot while stationary
+                
             }
             
         }
