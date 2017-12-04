@@ -16,6 +16,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.util.ArrayList;
+import java.awt.Rectangle;
+import java.awt.Dimension;
 /**
  *
  * @author Student
@@ -28,7 +30,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private final int DELAY = 10;
     private final int octo_X = 50;
     private final int octo_Y = 500;
-    private final int boss_X = 1000;
+    private final int boss_X = 1220;
     private final int boss_Y = 500;
     
     public DisplayingOctopops() {
@@ -74,6 +76,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         updateBullets();
+        checkCollisions();
         repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1400)
         {
@@ -102,6 +105,22 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      private void updateOctopops(){
      Octopops.move();
      }
+     
+      public void checkCollisions() {
+    ArrayList<Bullet> ms = Octopops.getBullets();
+
+        for (Bullet m : ms) {
+
+            Rectangle r1 = m.getBounds();
+
+                Rectangle r2 = BossAi.getBounds();
+
+                if (r1.intersects(r2)) {
+                    m.setVisible(false);
+                    BossAi.setVisible(false);
+                }
+            }
+        }
 
     private class Adapter extends KeyAdapter {
 
