@@ -26,7 +26,7 @@ public class MovingSprite extends JFrame {
         setSize(1500, 700);
         setResizable(false);
 
-        setTitle("Moving sprite");
+        setTitle("Octopops");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

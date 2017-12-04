@@ -15,7 +15,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
+import java.util.ArrayList;
 /**
  *
  * @author Student
@@ -25,7 +25,8 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private Octopops Octopops;
     private Timer timer;
     private final int DELAY = 10;
-
+    private final int octo_X = 50;
+    private final int octo_Y = 500;
     public DisplayingOctopops() {
         character();
         timer = new Timer(DELAY, this);
@@ -37,7 +38,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         addKeyListener(new Adapter());
         setFocusable(true);
         setBackground(Color.WHITE);
-        Octopops = new Octopops();
+        Octopops = new Octopops(octo_X, octo_Y);
     }
 
     @Override
@@ -53,17 +54,45 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
-    }
+     ArrayList ms = Octopops.getBullets();
 
+        for (Object m1 : ms) {
+            Bullet m = (Bullet) m1;
+            g2d.drawImage(m.getImage(), m.getX(),500, this);
+    }
+    }
+    
     @Override
 
     public void actionPerformed(ActionEvent e) {
-        Octopops.move();
+        updateOctopops();
+        updateBullets();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1400)
         {
         repaint();
         }
     }
+
+     private void updateBullets() {
+
+        ArrayList ms = Octopops.getBullets();
+
+        for (int i = 0; i < ms.size(); i++) {
+
+            Bullet m = (Bullet) ms.get(i);
+
+            if (m.isVisible()) {
+
+                m.move();
+            } else {
+
+                ms.remove(i);
+            }
+        }
+    }
+     private void updateOctopops(){
+     Octopops.move();
+     }
 
     private class Adapter extends KeyAdapter {
 

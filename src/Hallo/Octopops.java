@@ -13,20 +13,26 @@ package Hallo;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.util.ArrayList;
 
-public class Octopops {
+public class Octopops extends Sprite{
     private int dx;
-    private int x;
+    public int x;
     private Image image;
-
-    public Octopops() {
+    private Image image2;
+    private ArrayList Bullets;
+    
+    public Octopops(int x, int y) {
+        super(x, y);
+        
         character();
     }
     
     private void character() {
-        
+        Bullets = new ArrayList();
         ImageIcon i = new ImageIcon("octopops.png");
         image = i.getImage();
+        
         x = 90;       
     }
 
@@ -42,6 +48,10 @@ public class Octopops {
     public Image getImage() {
         return image;
     }
+    
+    public ArrayList getBullets() {
+    return Bullets;
+}
 
     public void keyPressed(KeyEvent e) {
 
@@ -57,8 +67,12 @@ public class Octopops {
             x = Math.min(1400, x);
             dx = 1;
         }
-
-       
+        if (key == KeyEvent.VK_SPACE) {
+        fire();
+        }
+    }
+    public void fire() {
+        Bullets.add(new Bullet(x + width,  y + height / 2));
     }
 
     public void keyReleased(KeyEvent e) {
