@@ -32,7 +32,7 @@ public class FallingBullets extends Sprite{
     }
 private void character() {
         Bullets = new ArrayList();
-        ImageIcon i = new ImageIcon("octopops.png");
+        ImageIcon i = new ImageIcon("bullets.png");
         image = i.getImage();
         y = 0;
         x = rngesus;
