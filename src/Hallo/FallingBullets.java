@@ -44,5 +44,8 @@ public void move(int BulletSpeedx, int BulletSpeedy) {
         if (x > BOARD_WIDTH) {
             vis = false;
         }
+        if (y > BOARD_Length) {
+            vis = false;
+        }
     }
 }
