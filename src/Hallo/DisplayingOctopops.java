@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Hallo;
 
 import java.awt.Color;
@@ -16,32 +15,33 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
 /**
  *
  * @author Student
  */
 public class DisplayingOctopops extends JPanel implements ActionListener {
-    
+
     private Octopops Octopops;
     private Timer timer;
     private final int DELAY = 10;
+
     public DisplayingOctopops() {
         character();
         timer = new Timer(DELAY, this);
         timer.start();
     }
-    
+
     private void character() {
-        
+
         addKeyListener(new Adapter());
         setFocusable(true);
         setBackground(Color.BLACK);
-        Octopops = new Octopops();       
+        Octopops = new Octopops();
     }
 
-
     @Override
-    
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -49,19 +49,21 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
         Toolkit.getDefaultToolkit().sync();
     }
-    
+
     private void doDrawing(Graphics g) {
-    Graphics2D g2d = (Graphics2D) g;
-    g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500,this);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
     }
-     @Override
-     
+
+    @Override
+
     public void actionPerformed(ActionEvent e) {
         Octopops.move();
-        repaint();  
+        repaint();
     }
-    
+
     private class Adapter extends KeyAdapter {
+
         @Override
         public void keyReleased(KeyEvent e) {
             Octopops.keyReleased(e);
@@ -73,4 +75,3 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         }
     }
 }
-
