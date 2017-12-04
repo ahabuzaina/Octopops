@@ -25,7 +25,9 @@ public class FallingBullets extends Sprite{
     private ArrayList Bullets;
     Random rng = new Random();
     private int rngesus = rng.nextInt(1201);
-    public FallingBullets(int x, int y) {
+    int BulletSpeedx = 0;
+    int BulletSpeedy = 0;
+    public FallingBullets(int x, int y, int BulletSpeedx, int BulletSpeedy) {
     super(x, 0);
         
         character();
@@ -37,7 +39,7 @@ private void character() {
         y = 0;
         x = rngesus;
     }
-public void move(int BulletSpeedx, int BulletSpeedy) {
+public void move() {
         
         x += BulletSpeedx;
         y += BulletSpeedy;
