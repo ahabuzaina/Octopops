@@ -59,7 +59,10 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         Octopops.move();
+        if (Octopops.getX() >= 0 && Octopops.getX() <= 1400)
+        {
         repaint();
+        }
     }
 
     private class Adapter extends KeyAdapter {
