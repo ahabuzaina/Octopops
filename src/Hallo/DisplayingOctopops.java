@@ -52,7 +52,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     
     private void doDrawing(Graphics g) {
     Graphics2D g2d = (Graphics2D) g;
-    g2d.drawImage(Octopops.getImage(), Octopops.getX(), 50,this);
+    g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500,this);
     }
      @Override
      
