@@ -64,6 +64,11 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
         g2d.drawImage(BossAi.getImage(), 1100, 400, this);
+        if (BossAi.isVisible()) {
+            g2d.drawImage(BossAi.getImage(), 1100, 400, this);
+            } else {
+        BossAi.remove("");
+            }
         ArrayList ms = Octopops.getBullets();
 
         for (Object m1 : ms) {
@@ -77,6 +82,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         updateBullets();
         checkCollisions();
+        updateBoss();
         repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1000)
         {
@@ -105,6 +111,9 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      private void updateOctopops(){
      Octopops.move();
      }
+     private void updateBoss(){
+     BossAi.ishehit();
+     }
      
       public void checkCollisions() {
     ArrayList<Bullet> ms = Octopops.getBullets();
@@ -112,8 +121,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         for (Bullet m : ms) {
 
             Rectangle r1 = m.getBounds();
-
-                Rectangle r2 = BossAi.getBounds();
+            Rectangle r2 = BossAi.getBounds();
 
                 if (r1.intersects(r2)) {
                     m.setVisible(false);
@@ -121,7 +129,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
                 }
             }
         }
-
+      
     private class Adapter extends KeyAdapter {
 
         @Override

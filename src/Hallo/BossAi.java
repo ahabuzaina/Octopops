@@ -14,8 +14,9 @@ import java.util.Random;
  */
 public class BossAi extends Sprite{
     private ArrayList Bullets;
-    public int hit = 0;
-    public int hp = 9001;
+    private int hit = 0;
+    private int hp = 1;
+    
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     
@@ -29,18 +30,23 @@ public class BossAi extends Sprite{
         
         loadImage("Final_Boss.png");  
         getImageDimensions();
+        setVisible(true);
     }
    
     public void ishehit(){
         hit = 1;
+        hebehit();
     }
     public void hebehit()
     {
     if (hit == 1)
         {
-        hp = hp-1;
+        hp = hp - 1;
         hit = 0;
+        if (hp == 0){
+            vis = false;
         }
+    }
     }
     public void pewpew(){
         while (hp >= 1){
@@ -55,9 +61,5 @@ public class BossAi extends Sprite{
             }
             rngesus = rng.nextInt(100);
         }
-        if (hp <= 0){
-            //he dead, return something so you can go to credits
-            
         }
     }
-}
