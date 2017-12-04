@@ -78,7 +78,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         updateBullets();
         checkCollisions();
         repaint();
-        if (Octopops.getX() >= 0 && Octopops.getX() <= 1400)
+        if (Octopops.getX() >= 0 && Octopops.getX() <= 1000)
         {
         updateOctopops();
         repaint();

@@ -57,13 +57,13 @@ public class Octopops extends Sprite{
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_A && x >= 0) {
             x = Math.max(0, x);
-            x = Math.min(1400, x);
+            x = Math.min(1000, x);
             dx = -1;
         }
 
-        if (key == KeyEvent.VK_D && x <= 1400) {
+        if (key == KeyEvent.VK_D && x <= 1000) {
             x = Math.max(0, x);
-            x = Math.min(1400, x);
+            x = Math.min(1000, x);
             dx = 1;
         }
         if (key == KeyEvent.VK_SPACE) {
