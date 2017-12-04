@@ -19,7 +19,6 @@ public class Octopops extends Sprite{
     private int dx;
     public int x;
     private Image image;
-    private Image image2;
     private ArrayList Bullets;
     
     public Octopops(int x, int y) {
@@ -32,7 +31,7 @@ public class Octopops extends Sprite{
         Bullets = new ArrayList();
         ImageIcon i = new ImageIcon("octopops.png");
         image = i.getImage();
-        
+        y = 500;
         x = 90;       
     }
 
@@ -72,7 +71,7 @@ public class Octopops extends Sprite{
         }
     }
     public void fire() {
-        Bullets.add(new Bullet(x + width,  y + height / 2));
+        Bullets.add(new Bullet(x + 65, y));
     }
 
     public void keyReleased(KeyEvent e) {

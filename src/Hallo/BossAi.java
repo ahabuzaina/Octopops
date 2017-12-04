@@ -11,11 +11,24 @@ import java.util.Random;
  *
  * @author Student
  */
-public class BossAi {
+public class BossAi extends Sprite{
     public int hit = 0;
     public int hp = 600;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
+    
+    public BossAi(int x, int y) {
+        super(x, y);
+        
+        initBoss();
+    }
+   
+   private void initBoss() {
+        
+        loadImage("Final_Boss.png");  
+        getImageDimensions();
+    }
+   
     public void ishehit(){
         hit = 1;
     }

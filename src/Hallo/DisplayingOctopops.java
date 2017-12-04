@@ -23,10 +23,13 @@ import java.util.ArrayList;
 public class DisplayingOctopops extends JPanel implements ActionListener {
 
     private Octopops Octopops;
+    private BossAi BossAi;
     private Timer timer;
     private final int DELAY = 10;
     private final int octo_X = 50;
     private final int octo_Y = 500;
+    private final int boss_X = 1000;
+    private final int boss_Y = 500;
     public DisplayingOctopops() {
         character();
         timer = new Timer(DELAY, this);
@@ -39,6 +42,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         setFocusable(true);
         setBackground(Color.WHITE);
         Octopops = new Octopops(octo_X, octo_Y);
+        BossAi = new BossAi(boss_X, boss_Y);
     }
 
     @Override
@@ -54,7 +58,8 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
-     ArrayList ms = Octopops.getBullets();
+        g2d.drawImage(BossAi.getImage(), 1100, 400, this);
+        ArrayList ms = Octopops.getBullets();
 
         for (Object m1 : ms) {
             Bullet m = (Bullet) m1;
