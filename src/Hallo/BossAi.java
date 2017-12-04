@@ -41,7 +41,7 @@ public class BossAi extends Sprite{
         }
     }
     public void pewpew(){
-        if (hp >= 300){
+        if (hp >= 1){
             //normal shite
             if (rngesus > 66){
                 //move left by random number and shoot a bit
@@ -54,23 +54,7 @@ public class BossAi extends Sprite{
             }
             
         }
-        if (hp < 300 && hp > 0){
-            //his enraged mode
-            /*
-            * if user fires at him, 50/50 chance of dodging left or right
-            * three types of firing
-            */
-            if (rngesus > 70){
-                //shots target user? or shotgun
-            }
-            if (rngesus > 5 && rngesus <= 70){
-                // many normal shots
-            }
-            if (rngesus <= 5){
-                // super laser
-            }
-        }
-        if (hp == 0){
+        if (hp <= 0){
             //he dead, return something so you can go to credits
             
         }
