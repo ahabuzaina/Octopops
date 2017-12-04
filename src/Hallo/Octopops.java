@@ -49,7 +49,7 @@ public class Octopops extends Sprite{
     }
     
     public ArrayList getBullets() {
-    return Bullets;
+        return Bullets;
 }
 
     public void keyPressed(KeyEvent e) {
@@ -67,7 +67,7 @@ public class Octopops extends Sprite{
             dx = 1;
         }
         if (key == KeyEvent.VK_SPACE) {
-        fire();
+            fire();
         }
     }
     public void fire() {

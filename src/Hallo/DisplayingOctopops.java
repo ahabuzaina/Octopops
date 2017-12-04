@@ -30,7 +30,9 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private final int octo_Y = 500;
     private final int boss_X = 1000;
     private final int boss_Y = 500;
+    
     public DisplayingOctopops() {
+        
         character();
         timer = new Timer(DELAY, this);
         timer.start();
@@ -48,6 +50,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     @Override
 
     public void paintComponent(Graphics g) {
+        
         super.paintComponent(g);
 
         doDrawing(g);
