@@ -5,6 +5,7 @@
  */
 
 package Hallo;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Random;
  * @author Student
  */
 public class BossAi extends Sprite{
+    private ArrayList Bullets;
     public int hit = 0;
     public int hp = 9001;
     Random rng = new Random();
@@ -41,18 +43,17 @@ public class BossAi extends Sprite{
         }
     }
     public void pewpew(){
-        if (hp >= 1){
-            //normal shite
+        while (hp >= 1){
             if (rngesus > 66){
-                
+                Bullets.add(new FallingBullets(rng.nextInt(1201),0));
             }
             if (rngesus > 33 && rngesus <= 66){
-                
+                Bullets.add(new FallingBullets(rng.nextInt(1201),0));
             }
             if (rngesus <= 33){
-                
+                Bullets.add(new FallingBullets(rng.nextInt(1201),0));
             }
-            
+            rngesus = rng.nextInt(100);
         }
         if (hp <= 0){
             //he dead, return something so you can go to credits
@@ -60,4 +61,3 @@ public class BossAi extends Sprite{
         }
     }
 }
-// need to add in the image things for the boss
