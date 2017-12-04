@@ -36,7 +36,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
         addKeyListener(new Adapter());
         setFocusable(true);
-        setBackground(Color.BLACK);
+        setBackground(Color.WHITE);
         Octopops = new Octopops();
     }
 
