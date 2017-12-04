@@ -23,7 +23,7 @@ public class HomePageGUI extends javax.swing.JFrame {
         this.jLabel1.setIcon(new ImageIcon("Final_Boss.png"));
         this.jLabel2.setIcon(new ImageIcon("octopops.png"));
         
-        getContentPane().setBackground(Color.BLACK);
+        getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -59,7 +59,6 @@ public class HomePageGUI extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("OCTOPOPS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
