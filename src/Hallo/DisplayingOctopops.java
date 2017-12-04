@@ -65,10 +65,11 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
-        updateOctopops();
         updateBullets();
+        repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1400)
         {
+        updateOctopops();
         repaint();
         }
     }
