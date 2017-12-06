@@ -103,7 +103,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         updateBullets();
         updateFallingBullets();
         checkCollisions();
-        checkCollisions2();
+        //checkCollisions2();
         repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1000)
         {
@@ -159,18 +159,18 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      BossAi.ishehit();
      }
      
-     public void checkCollisions2(){
-              ArrayList<FallingBullets> md = BossAi.getBullets();
-              for (FallingBullets mm : md) {
-            Rectangle r3 = mm.getBounds();
-            Rectangle r4 = Octopops.getBounds();
+     //public void checkCollisions2(){
+       //       ArrayList<FallingBullets> md = BossAi.getBullets();
+         //     for (FallingBullets mm : md) {
+           // Rectangle r3 = mm.getBounds();
+            //Rectangle r4 = Octopops.getBounds();
 
-                if (r3.intersects(r4)) {
-                    mm.setVisible(false);
-                    Octopops.setVisible(false);
-                    }
-            }
-      }
+              //  if (r3.intersects(r4)) {
+                //    mm.setVisible(false);
+                  //  Octopops.setVisible(false);
+                    //}
+            //}
+      //}
      
       public void checkCollisions() {
     ArrayList<Bullet> ms = Octopops.getBullets();
