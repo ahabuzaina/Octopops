@@ -28,10 +28,10 @@ public class BossAi extends Sprite{
         public void run() {
             if (hp >= 1) {
             for (int n = 0; n < 20; n++){
-            rngesus = rng.nextInt(100);
+            
                 Bullets1.add(new FallingBullets(x,y));
             }
-            x = rng.nextInt(1101);
+            x = rng.nextInt(1400);
             } else {
                 timer.cancel();
             }
