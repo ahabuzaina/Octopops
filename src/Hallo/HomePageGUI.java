@@ -19,6 +19,8 @@ public class HomePageGUI extends javax.swing.JFrame {
      */
     public HomePageGUI() {
         initComponents();
+        
+        setTitle("Octopops The Game");
 
         this.jLabel1.setIcon(new ImageIcon("Final_Boss.png"));
         this.jLabel2.setIcon(new ImageIcon("octopops.png"));
