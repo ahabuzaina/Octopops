@@ -83,7 +83,6 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         updateBullets();
         checkCollisions();
-        updateBoss();
         repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1000)
         {
@@ -126,8 +125,11 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
                 if (r1.intersects(r2)) {
                     m.setVisible(false);
+                    BossAi.ishehit();
+                    if (BossAi.hp() <= 0){
                     BossAi.setVisible(false);
-                }
+                    }
+                    }
             }
         }
       

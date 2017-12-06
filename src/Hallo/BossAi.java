@@ -14,9 +14,8 @@ import java.util.Random;
  */
 public class BossAi extends Sprite{
     private ArrayList Bullets;
-    private int hit = 0;
-    private int hp = 2;
-    private int n;
+    private int hit;
+    private int hp = 9001;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     
@@ -34,16 +33,7 @@ public class BossAi extends Sprite{
     }
    
     public void ishehit(){
-        hit = 1;
-        hebehit();
-    }
-    public void hebehit()
-    {
-    if (hit == 1)
-        {
-        hp = hp - 1;
-        hit = 0;
-    }
+        hp = hp - 420;
     }
     
     public int hp(){
