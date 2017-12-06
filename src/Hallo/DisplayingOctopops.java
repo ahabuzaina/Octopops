@@ -65,9 +65,10 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
         doDrawing(g);
 
-        if(BossAi.hp() <= 0)
+        if(0 >= BossAi.hp())
         {
-        drawGameOver(g);
+            drawGameOver(g);
+        } else {
         }
         Toolkit.getDefaultToolkit().sync();
     }
@@ -132,16 +133,20 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      
          ArrayList md = BossAi.getBullets();
 
-        for (int i = 0; i <md.size(); i++) {
+        for (int i = 0; i < md.size(); i++) {
 
-            FallingBullets mm = (FallingBullets) md.get(i);
-            if (mm.isVisible()) {
-            mm.move();
+            FallingBullets m = (FallingBullets) md.get(i);
+
+            if (m.isVisible()) {
+
+                m.move();
             } else {
+
                 md.remove(i);
             }
+            }
         }
-     }
+     
     
      
      private void updateOctopops(){
@@ -153,6 +158,19 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      private void updateBoss(){
      BossAi.ishehit();
      }
+     
+     public void checkCollisions2(){
+              ArrayList<FallingBullets> md = BossAi.getBullets();
+              for (FallingBullets mm : md) {
+            Rectangle r3 = mm.getBounds();
+            Rectangle r4 = Octopops.getBounds();
+
+                if (r3.intersects(r4)) {
+                    mm.setVisible(false);
+                    Octopops.setVisible(false);
+                    }
+            }
+      }
      
       public void checkCollisions() {
     ArrayList<Bullet> ms = Octopops.getBullets();
@@ -169,19 +187,6 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
                     }
             }
         }
-      
-      public void checkCollisions2(){
-              ArrayList<FallingBullets> md = BossAi.getBullets();
-        for (FallingBullets mm : md) {
-            Rectangle r1 = mm.getBounds();
-            Rectangle r2 = Octopops.getBounds();
-
-                if (r1.intersects(r2)) {
-                    mm.setVisible(false);
-                    Octopops.setVisible(false);
-                    }
-            }
-            }
       
        private void drawGameOver(Graphics g) {
 

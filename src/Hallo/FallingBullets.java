@@ -6,7 +6,6 @@
 
 package Hallo;
 
-import java.util.Random;
 
 /**
  *
@@ -15,8 +14,7 @@ import java.util.Random;
 public class FallingBullets extends Sprite{
     
     private final int BOARD_Length = 700;
-    private final int BOARD_WIDTH = 1500;
-    Random rng = new Random();
+    private final int BOARD_WIDTH = 2000;
     int BulletSpeedy = 2;
     
     public FallingBullets(int x, int y) {

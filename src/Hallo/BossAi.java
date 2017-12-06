@@ -16,7 +16,7 @@ import java.util.TimerTask;
  */
 public class BossAi extends Sprite{
     Timer timer;
-    private ArrayList Bullets;
+    private ArrayList Bullets1;
     private int hp = 75;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
@@ -29,16 +29,7 @@ public class BossAi extends Sprite{
             if (hp >= 1) {
             for (int n = 0; n < 20; n++){
             rngesus = rng.nextInt(100);
-            
-            if (rngesus > 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus > 33 && rngesus <= 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus <= 33){
-                Bullets.add(new FallingBullets(x,y));
-            }
+                Bullets1.add(new FallingBullets(x,y));
             }
             x = rng.nextInt(1101);
             } else {
@@ -53,7 +44,7 @@ public class BossAi extends Sprite{
     }
    
    private void initBoss() {
-        Bullets = new ArrayList();
+        Bullets1 = new ArrayList();
         loadImage("Final_Boss.png");  
         getImageDimensions();
         setVisible(true);
@@ -68,7 +59,7 @@ public class BossAi extends Sprite{
     }
     
     public ArrayList getBullets() {
-        return Bullets;
+        return Bullets1;
 }
 
     public void pewpew(){
