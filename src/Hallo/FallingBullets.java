@@ -16,6 +16,7 @@ public class FallingBullets extends Sprite{
     private final int BOARD_Length = 700;
     private final int BOARD_WIDTH = 2000;
     int BulletSpeedy = 2;
+    int BulletSpeedx = -1;
     
     public FallingBullets(int x, int y) {
         
@@ -31,6 +32,7 @@ private void character() {
 
 public void move() {
         y += BulletSpeedy;
+        x += BulletSpeedx;
         if (y > BOARD_Length) {
             vis = false;
         }
