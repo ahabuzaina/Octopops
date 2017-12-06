@@ -7,19 +7,43 @@
 package Hallo;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
  * @author Student
  */
 public class BossAi extends Sprite{
-    private ArrayList Bullets1;
-    private int hp = 9001;
+    Timer timer;
+    private ArrayList Bullets;
+    private int hp = 75;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     private int rngesus1 = rng.nextInt(1101);
     private int y = 0;
+    class RemindTask extends TimerTask {
+        public void run() {
+            if (hp >= 1) {
+            for (int n = 0; n < 20; n++){
+            rngesus = rng.nextInt(100);
+            
+            if (rngesus > 66){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            if (rngesus > 33 && rngesus <= 66){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            if (rngesus <= 33){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            }
+            x = rng.nextInt(1101);
+            } else {
+                timer.cancel();
+            }
+        }
+    }
     public BossAi(int x, int y) {
         super(x, y);
         
@@ -27,14 +51,14 @@ public class BossAi extends Sprite{
     }
    
    private void initBoss() {
-        Bullets1 = new ArrayList();
+        Bullets = new ArrayList();
         loadImage("Final_Boss.png");  
         getImageDimensions();
         setVisible(true);
     }
    
     public void ishehit(){
-        hp = hp - 420;
+        hp = hp - 1;
     }
     
     public int hp(){
@@ -42,11 +66,11 @@ public class BossAi extends Sprite{
     }
     
     public ArrayList getBullets() {
-        return Bullets1;
+        return Bullets;
 }
 
     public void pewpew(){
-Bullets1.add(new FallingBullets(x - rngesus1,y));
+        timer = new Timer();
+        timer.schedule(new RemindTask(), 0, 1500);
         }
-        }
-    
+}

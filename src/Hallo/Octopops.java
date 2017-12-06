@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Octopops extends Sprite{
     private int dx;
     private int x = 90;
-    private int y = 500;
+    public int y = 500;
     private Image image;
     private ArrayList Bullets;
     

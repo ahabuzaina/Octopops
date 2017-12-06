@@ -31,7 +31,7 @@ public class FallingBullets extends Sprite{
     }
     
 private void character() {
-        loadImage("bullet.png");  
+        loadImage("fallingbullet.png");  
         getImageDimensions();
     }
 
