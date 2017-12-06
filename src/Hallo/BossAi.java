@@ -15,11 +15,12 @@ import javax.swing.Timer;
  */
 public class BossAi extends Sprite{
     private ArrayList Bullets;
-    private int hit;
     private int hp = 9001;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
-    
+    private final int rngesus1 = rng.nextInt(1201);
+    private final int x = rngesus1;
+    private final int y = 0;
     public BossAi(int x, int y) {
         super(x, y);
         
@@ -27,7 +28,7 @@ public class BossAi extends Sprite{
     }
    
    private void initBoss() {
-        
+        Bullets = new ArrayList();
         loadImage("Final_Boss.png");  
         getImageDimensions();
         setVisible(true);
@@ -44,23 +45,21 @@ public class BossAi extends Sprite{
     public ArrayList getBullets() {
         return Bullets;
 }
-    
+
     public void pewpew(){
-        while (hp >= 1){
-            for (int fufufu = 0; fufufu <= 100; fufufu++){
-            if (fufufu % 10 == 0){
+        //while (hp >= 1)
+        for (int i = 0; i < 10; i++){
+            rngesus = rng.nextInt(100);
+            
             if (rngesus > 66){
-                Bullets.add(new FallingBullets(rng.nextInt(1201),0,5,13));
+                Bullets.add(new FallingBullets(x,y));
             }
             if (rngesus > 33 && rngesus <= 66){
-                Bullets.add(new FallingBullets(rng.nextInt(1201),0,3,2));
+                Bullets.add(new FallingBullets(x,y));
             }
             if (rngesus <= 33){
-                Bullets.add(new FallingBullets(rng.nextInt(1201),0,-4,8));
+                Bullets.add(new FallingBullets(x,y));
             }
             }
-            rngesus = rng.nextInt(100);
         }
         }
-        }
-    }

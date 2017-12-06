@@ -17,7 +17,8 @@ import java.util.ArrayList;
 
 public class Octopops extends Sprite{
     private int dx;
-    public int x;
+    private int x = 90;
+    private int y = 500;
     private Image image;
     private ArrayList Bullets;
     
@@ -30,9 +31,7 @@ public class Octopops extends Sprite{
     private void character() {
         Bullets = new ArrayList();
         ImageIcon i = new ImageIcon("octopops.png");
-        image = i.getImage();
-        y = 500;
-        x = 90;       
+        image = i.getImage();   
     }
 
 
@@ -68,7 +67,7 @@ public class Octopops extends Sprite{
         }
         if (key == KeyEvent.VK_SPACE) {
             fire();
-        }
+    }
     }
     public void fire() {
         Bullets.add(new Bullet(x + 65, y));

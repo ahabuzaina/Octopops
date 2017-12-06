@@ -17,49 +17,32 @@ import java.util.Random;
  */
 public class FallingBullets extends Sprite{
     
-    private int dx;
-    public int x;
-    public int y;
-    private Image image;
     private final int BOARD_Length = 700;
     private final int BOARD_WIDTH = 1500;
-    private ArrayList Bullets;
     Random rng = new Random();
-    private int rngesus = rng.nextInt(1201);
-    int BulletSpeedx;
-    int BulletSpeedy;
+    int BulletSpeedx = 0;
+    int BulletSpeedy = 2;
     
     
-    
-    public FallingBullets(int x, int y, int BulletSpeedx, int BulletSpeedy) {
+    public FallingBullets(int x, int y) {
         
-    super(x, 0);
+    super(x, y);
         
         character();
     }
     
 private void character() {
-    
-        Bullets = new ArrayList();
-        ImageIcon i = new ImageIcon("bullets.png");
-        image = i.getImage();
-        y = 0;
-        x = rngesus;
+        loadImage("bullet.png");  
+        getImageDimensions();
     }
 
 public void move() {
     
-        x += BulletSpeedx;
+        //x += BulletSpeedx;
         y += BulletSpeedy;
-        
-        if (y > BOARD_Length && x > BOARD_WIDTH) {
-            vis = false;
-        }else {
-        vis = true;
-        }
-        if (x > BOARD_WIDTH) {
-            vis = false;
-        }
+        //if (x > BOARD_WIDTH) {
+        //    vis = false;
+        //}
         if (y > BOARD_Length) {
             vis = false;
         }
