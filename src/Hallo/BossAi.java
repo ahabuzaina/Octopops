@@ -16,7 +16,7 @@ public class BossAi extends Sprite{
     private ArrayList Bullets;
     private int hit = 0;
     private int hp = 1;
-    
+    private int n;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     
@@ -48,6 +48,13 @@ public class BossAi extends Sprite{
         }
     }
     }
+    
+    public int hp(int n){
+    hp = n;
+    return hp;
+    }
+    
+    
     public void pewpew(){
         while (hp >= 1){
             if (rngesus > 66){
