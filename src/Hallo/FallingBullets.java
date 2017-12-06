@@ -6,9 +6,6 @@
 
 package Hallo;
 
-import java.awt.Image;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import java.util.Random;
 
 /**
@@ -20,7 +17,6 @@ public class FallingBullets extends Sprite{
     private final int BOARD_Length = 700;
     private final int BOARD_WIDTH = 1500;
     Random rng = new Random();
-    int BulletSpeedx = 0;
     int BulletSpeedy = 2;
     
     public FallingBullets(int x, int y) {
@@ -36,12 +32,7 @@ private void character() {
     }
 
 public void move() {
-    
-        //x += BulletSpeedx;
         y += BulletSpeedy;
-        //if (x > BOARD_WIDTH) {
-        //    vis = false;
-        //}
         if (y > BOARD_Length) {
             vis = false;
         }

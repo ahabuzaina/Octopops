@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.util.ArrayList;
 import java.awt.Rectangle;
-import java.awt.Dimension;
 /**
  *
  * @author Student

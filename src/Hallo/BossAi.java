@@ -22,7 +22,9 @@ public class BossAi extends Sprite{
     private int rngesus = rng.nextInt(100);
     private int rngesus1 = rng.nextInt(1101);
     private int y = 0;
+    
     class RemindTask extends TimerTask {
+        @Override
         public void run() {
             if (hp >= 1) {
             for (int n = 0; n < 20; n++){

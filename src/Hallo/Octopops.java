@@ -38,11 +38,11 @@ public class Octopops extends Sprite{
     public void move() {
         x += 4*dx;
     }
-
+@Override
     public int getX() {
         return x;
     }
-
+@Override
     public Image getImage() {
         return image;
     }
