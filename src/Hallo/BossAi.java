@@ -44,6 +44,8 @@ public class BossAi extends Sprite{
     
     public void pewpew(){
         while (hp >= 1){
+            for (int fufufu = 0; fufufu <= 100; fufufu++){
+            if (fufufu % 10 == 0){
             if (rngesus > 66){
                 Bullets.add(new FallingBullets(rng.nextInt(1201),0,5,13));
             }
@@ -53,7 +55,9 @@ public class BossAi extends Sprite{
             if (rngesus <= 33){
                 Bullets.add(new FallingBullets(rng.nextInt(1201),0,-4,8));
             }
+            }
             rngesus = rng.nextInt(100);
+        }
         }
         }
     }
