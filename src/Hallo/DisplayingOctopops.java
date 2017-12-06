@@ -6,6 +6,8 @@
 package Hallo;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
@@ -28,11 +30,12 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private BossAi BossAi;
     private Timer timer;
     private final int DELAY = 10;
-    private final int octo_X = 50;
-    private final int octo_Y = 500;
+    private int octo_X = 50;
+    private int octo_Y = 500;
     private final int boss_X = 1220;
     private final int boss_Y = 500;
-    
+    private final int B_WIDTH = 900;
+    private final int B_HEIGHT = 300;
     public DisplayingOctopops() {
         
         character();
@@ -60,6 +63,10 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
         doDrawing(g);
 
+        if(BossAi.hp() <= 0)
+        {
+        drawGameOver(g);
+        }
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -169,19 +176,31 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         }
       
       public void checkCollisions2(){
-      ArrayList<FallingBullets> md = BossAi.getBullets();
+          ArrayList<FallingBullets> ms = BossAi.getBullets();
 
-        for (FallingBullets m : md) {
+        for (FallingBullets m : ms) {
 
-            Rectangle r1 = m.getBounds();
-            Rectangle r3 = Octopops.getBounds();
+            Rectangle r3 = m.getBounds();
+            Rectangle r4 = Octopops.getBounds();
 
-                if (r1.intersects(r3)) {
+                if (r3.intersects(r4)) {
                     m.setVisible(false);
                     Octopops.setVisible(false);
                     }
+                    }
             }
-      }
+      
+       private void drawGameOver(Graphics g) {
+
+        String msg = "Game Over";
+        Font small = new Font("Helvetica", Font.BOLD, 52);
+        FontMetrics fm = getFontMetrics(small);
+
+        g.setColor(Color.BLACK);
+        g.setFont(small);
+        g.drawString(msg, (B_WIDTH - fm.stringWidth(msg)),
+                B_HEIGHT / 2);
+    }
       
     private class Adapter extends KeyAdapter {
 

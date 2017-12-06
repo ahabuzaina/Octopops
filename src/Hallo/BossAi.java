@@ -19,8 +19,8 @@ public class BossAi extends Sprite{
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
     private final int rngesus1 = rng.nextInt(1201);
-    private final int x = rngesus1;
-    private final int y = 0;
+    private int x = rngesus1;
+    private int y = 0;
     public BossAi(int x, int y) {
         super(x, y);
         
@@ -47,8 +47,8 @@ public class BossAi extends Sprite{
 }
 
     public void pewpew(){
-        //while (hp >= 1)
-        for (int i = 0; i < 10; i++){
+        for(int i = 0; i < 10; i++){
+        for (int n = 0; n < 100; n++){
             rngesus = rng.nextInt(100);
             
             if (rngesus > 66){
@@ -63,3 +63,4 @@ public class BossAi extends Sprite{
             }
         }
         }
+}
