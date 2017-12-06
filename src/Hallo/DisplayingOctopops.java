@@ -48,6 +48,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         Octopops = new Octopops(octo_X, octo_Y);
         BossAi = new BossAi(boss_X, boss_Y);
         BossAi.setVisible(true);
+        //BossAi.pewpew();
     }
 
     @Override
@@ -71,16 +72,24 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         }
         
         ArrayList ms = Octopops.getBullets();
+        ArrayList md = BossAi.getBullets();
 
+        
         for (Object m1 : ms) {
             Bullet m = (Bullet) m1;
             g2d.drawImage(m.getImage(), m.getX(),500, this);
     }
+        
+        /*for (Object m1 : md) {
+            FallingBullets m = (FallingBullets) m1;
+            g2d.drawImage(m.getImage(), m.getX(),0, this);
+    }*/
     }
     
     @Override
 
     public void actionPerformed(ActionEvent e) {
+        //updateFallingBullets();
         updateBullets();
         checkCollisions();
         repaint();
@@ -108,9 +117,26 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
             }
         }
     }
+     private void updateFallingBullets() {
+     
+         ArrayList ms = BossAi.getBullets();
+
+        for (int i = 0; i < 6; i++) {
+
+            FallingBullets m = (FallingBullets) ms.get(i);
+            if (m.isVisible()) {
+                m.move();
+            } else {
+                ms.remove(i);
+            }
+        }
+     }
+    
+     
      private void updateOctopops(){
      Octopops.move();
      }
+     
      private void updateBoss(){
      BossAi.ishehit();
      }

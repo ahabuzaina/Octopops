@@ -16,6 +16,7 @@ import java.util.Random;
  * @author Student
  */
 public class FallingBullets extends Sprite{
+    
     private int dx;
     public int x;
     public int y;
@@ -25,24 +26,37 @@ public class FallingBullets extends Sprite{
     private ArrayList Bullets;
     Random rng = new Random();
     private int rngesus = rng.nextInt(1201);
-    int BulletSpeedx = 0;
-    int BulletSpeedy = 0;
+    int BulletSpeedx;
+    int BulletSpeedy;
+    
+    
+    
     public FallingBullets(int x, int y, int BulletSpeedx, int BulletSpeedy) {
+        
     super(x, 0);
         
         character();
     }
+    
 private void character() {
+    
         Bullets = new ArrayList();
         ImageIcon i = new ImageIcon("bullets.png");
         image = i.getImage();
         y = 0;
         x = rngesus;
     }
+
 public void move() {
-        
+    
         x += BulletSpeedx;
         y += BulletSpeedy;
+        
+        if (y > BOARD_Length && x > BOARD_WIDTH) {
+            vis = false;
+        }else {
+        vis = true;
+        }
         if (x > BOARD_WIDTH) {
             vis = false;
         }

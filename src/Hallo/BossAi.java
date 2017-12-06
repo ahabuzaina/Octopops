@@ -40,6 +40,9 @@ public class BossAi extends Sprite{
     return hp;
     }
     
+    public ArrayList getBullets() {
+        return Bullets;
+}
     
     public void pewpew(){
         while (hp >= 1){
