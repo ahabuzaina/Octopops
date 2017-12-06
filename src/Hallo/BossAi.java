@@ -7,13 +7,15 @@
 package Hallo;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
  * @author Student
  */
 public class BossAi extends Sprite{
+    Timer timer;
     private ArrayList Bullets;
     private int hp = 9001;
     Random rng = new Random();
@@ -21,6 +23,28 @@ public class BossAi extends Sprite{
     private final int rngesus1 = rng.nextInt(1201);
     private int x = rngesus1;
     private int y = 0;
+    class RemindTask extends TimerTask {
+        public void run() {
+            if (hp >= 1) {
+            for (int n = 0; n < 100; n++){
+            rngesus = rng.nextInt(100);
+            
+            if (rngesus > 66){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            if (rngesus > 33 && rngesus <= 66){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            if (rngesus <= 33){
+                Bullets.add(new FallingBullets(x,y));
+            }
+            }
+            x = rng.nextInt(1201);
+            } else {
+                timer.cancel();
+            }
+        }
+    }
     public BossAi(int x, int y) {
         super(x, y);
         
@@ -47,20 +71,7 @@ public class BossAi extends Sprite{
 }
 
     public void pewpew(){
-        for(int i = 0; i < 10; i++){
-        for (int n = 0; n < 100; n++){
-            rngesus = rng.nextInt(100);
-            
-            if (rngesus > 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus > 33 && rngesus <= 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus <= 33){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            }
-        }
+        timer = new Timer();
+        timer.schedule(new RemindTask(), 0, 1000);
         }
 }
