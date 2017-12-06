@@ -47,6 +47,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         setBackground(Color.WHITE);
         Octopops = new Octopops(octo_X, octo_Y);
         BossAi = new BossAi(boss_X, boss_Y);
+        BossAi.setVisible(true);
     }
 
     @Override
@@ -64,9 +65,8 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
         if (BossAi.isVisible()) {
-            
-            }else{
             g2d.drawImage(BossAi.getImage(), 1100, 400, this);
+            }else{
 
         }
         
@@ -126,7 +126,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
                 if (r1.intersects(r2)) {
                     m.setVisible(false);
-                    BossAi.setVisible(true);
+                    BossAi.setVisible(false);
                 }
             }
         }
