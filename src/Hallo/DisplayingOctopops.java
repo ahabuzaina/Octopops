@@ -63,12 +63,13 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(Octopops.getImage(), Octopops.getX(), 500, this);
-        g2d.drawImage(BossAi.getImage(), 1100, 400, this);
         if (BossAi.isVisible()) {
+            
+            }else{
             g2d.drawImage(BossAi.getImage(), 1100, 400, this);
-            } else {
-        BossAi.remove("");
-            }
+
+        }
+        
         ArrayList ms = Octopops.getBullets();
 
         for (Object m1 : ms) {
@@ -125,7 +126,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
                 if (r1.intersects(r2)) {
                     m.setVisible(false);
-                    BossAi.setVisible(false);
+                    BossAi.setVisible(true);
                 }
             }
         }
