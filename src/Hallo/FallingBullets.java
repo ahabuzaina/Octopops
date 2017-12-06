@@ -23,7 +23,6 @@ public class FallingBullets extends Sprite{
     int BulletSpeedx = 0;
     int BulletSpeedy = 2;
     
-    
     public FallingBullets(int x, int y) {
         
     super(x, y);

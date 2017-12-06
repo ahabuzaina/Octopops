@@ -14,12 +14,11 @@ import javax.swing.Timer;
  * @author Student
  */
 public class BossAi extends Sprite{
-    private ArrayList Bullets;
+    private ArrayList Bullets1;
     private int hp = 9001;
     Random rng = new Random();
     private int rngesus = rng.nextInt(100);
-    private final int rngesus1 = rng.nextInt(1201);
-    private int x = rngesus1;
+    private int rngesus1 = rng.nextInt(1101);
     private int y = 0;
     public BossAi(int x, int y) {
         super(x, y);
@@ -28,7 +27,7 @@ public class BossAi extends Sprite{
     }
    
    private void initBoss() {
-        Bullets = new ArrayList();
+        Bullets1 = new ArrayList();
         loadImage("Final_Boss.png");  
         getImageDimensions();
         setVisible(true);
@@ -43,24 +42,11 @@ public class BossAi extends Sprite{
     }
     
     public ArrayList getBullets() {
-        return Bullets;
+        return Bullets1;
 }
 
     public void pewpew(){
-        for(int i = 0; i < 10; i++){
-        for (int n = 0; n < 100; n++){
-            rngesus = rng.nextInt(100);
-            
-            if (rngesus > 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus > 33 && rngesus <= 66){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            if (rngesus <= 33){
-                Bullets.add(new FallingBullets(x,y));
-            }
-            }
+Bullets1.add(new FallingBullets(x - rngesus1,y));
         }
         }
-}
+    
