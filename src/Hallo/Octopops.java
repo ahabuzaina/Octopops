@@ -11,6 +11,7 @@ package Hallo;
  * @author Student
  */
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
@@ -21,7 +22,9 @@ public class Octopops extends Sprite{
     public int y = 500;
     private Image image;
     private ArrayList Bullets;
-    
+    int hp = 3;
+    int height = 100;
+    int width = 80;
     public Octopops(int x, int y) {
         super(x, y);
         
@@ -29,14 +32,28 @@ public class Octopops extends Sprite{
     }
     
     private void character() {
-        Bullets = new ArrayList();
         ImageIcon i = new ImageIcon("octopops.png");
-        image = i.getImage();   
+        image = i.getImage();
+    	Bullets = new ArrayList();
     }
 
+    public void heshit(){
+        hp = hp - 1;
+    }
+    
+    public int gethp(){
+    return hp;
+    }
+    
+    @Override
+    public Rectangle getBounds() {
+	Rectangle r1 = new Rectangle();
+	r1.setBounds(x, y, width, height);
+    return r1;
+    }
 
     public void move() {
-        x += 4*dx;
+        x += 5*dx;
     }
 @Override
     public int getX() {
@@ -69,6 +86,7 @@ public class Octopops extends Sprite{
             fire();
     }
     }
+    
     public void fire() {
         Bullets.add(new Bullet(x + 65, y));
     }

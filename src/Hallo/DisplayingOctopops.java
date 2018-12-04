@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Hallo;
-
+import java.util.ConcurrentModificationException;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -37,7 +37,6 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private final int B_HEIGHT = 300;
     private ArrayList Bullets1;
     public DisplayingOctopops() {
-        
         character();
         timer = new Timer(DELAY, this);
         timer.start();
@@ -52,7 +51,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         Octopops = new Octopops(octo_X, octo_Y);
         BossAi = new BossAi(boss_X, boss_Y);
         BossAi.setVisible(true);
-        for(int i = 0; i < 10;i++){
+        for(int i = 0; i < 1;i++){
         BossAi.pewpew();
         }
     }
@@ -103,12 +102,11 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         updateBullets();
         updateFallingBullets();
         checkCollisions();
-        //checkCollisions2();
+        checkCollisions2();
         repaint();
         if (Octopops.getX() >= 0 && Octopops.getX() <= 1000)
         {
         updateOctopops();
-        repaint();
         }
     }
 
@@ -129,6 +127,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
             }
         }
     }
+     
      private void updateFallingBullets() {
      
          ArrayList md = BossAi.getBullets();
@@ -142,7 +141,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
                 m.move();
             } else {
 
-                md.remove(i);
+            	md.remove(i);
             }
             }
         }
@@ -158,23 +157,27 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      private void updateBoss(){
      BossAi.ishehit();
      }
-     
-     //public void checkCollisions2(){
-       //       ArrayList<FallingBullets> md = BossAi.getBullets();
-         //     for (FallingBullets mm : md) {
-           // Rectangle r3 = mm.getBounds();
-            //Rectangle r4 = Octopops.getBounds();
-
-              //  if (r3.intersects(r4)) {
-                //    mm.setVisible(false);
-                  //  Octopops.setVisible(false);
-                    //}
-            //}
-      //}
+    	 public void checkCollisions2(){
+    	if (Octopops.isVisible())
+    	     {
+             ArrayList<FallingBullets> m = BossAi.getBullets();
+             for (int i = 0; i < m.size(); i++) {
+             Rectangle r3 = m.get(i).getBounds();
+             Rectangle r4 = Octopops.getBounds();
+               if (r3.intersects(r4)) {
+            	   m.get(i).setVisible(false);
+            	   Octopops.heshit();
+            	   if (Octopops.gethp() <= 0){
+                       Octopops.setVisible(false);
+                       }
+            	   }
+             }
+        }
+        }
      
       public void checkCollisions() {
-    ArrayList<Bullet> ms = Octopops.getBullets();
-        for (Bullet m : ms) {
+    ArrayList<Bullet> b = Octopops.getBullets();
+        for (Bullet m : b) {
             Rectangle r1 = m.getBounds();
             Rectangle r2 = BossAi.getBounds();
 

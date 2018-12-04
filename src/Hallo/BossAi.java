@@ -27,12 +27,22 @@ public class BossAi extends Sprite{
         @Override
         public void run() {
             if (hp >= 1) {
-            for (int n = 0; n < 20; n++){
-            
-                Bullets1.add(new FallingBullets(x,y));
+            for (int n = 0; n < 1; n++){
+                x = rng.nextInt(1400);
+                ArrayList<Integer> track = new ArrayList<>();
+                if(track.contains(x) == false) {
+                    int start = (int)System.currentTimeMillis();
+                	Bullets1.add(new FallingBullets(x,y));
+                }
+                else
+                	track.add(x);
+                
+//                for (int i = 0; i < start; i++)
+//                	if (i % 1000 == 0)
+                
             }
-            x = rng.nextInt(1400);
-            } else {
+            } 
+            else {
                 timer.cancel();
             }
         }
@@ -64,6 +74,6 @@ public class BossAi extends Sprite{
 
     public void pewpew(){
         timer = new Timer();
-        timer.schedule(new RemindTask(), 0, 1500);
+        timer.schedule(new RemindTask(), 0, 700);
         }
 }

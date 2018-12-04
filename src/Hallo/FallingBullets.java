@@ -22,10 +22,11 @@ public class FallingBullets extends Sprite{
         
     super(x, y);
         
-        character();
+    initFallingBullet();
+    
     }
     
-private void character() {
+private void initFallingBullet() {
         loadImage("fallingbullet.png");  
         getImageDimensions();
     }

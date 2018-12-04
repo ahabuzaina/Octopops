@@ -21,7 +21,6 @@ public class Bullet extends Sprite {
     }
     
     private void initBullet() {
-        
         loadImage("bullet.png");  
         getImageDimensions();
     }
