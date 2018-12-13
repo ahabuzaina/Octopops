@@ -6,6 +6,7 @@
 
 package Hallo;
 
+import java.util.Random;
 
 /**
  *
@@ -14,22 +15,40 @@ package Hallo;
 public class FallingBullets extends Sprite{
     
     private final int BOARD_Length = 700;
-    private final int BOARD_WIDTH = 2000;
     int BulletSpeedy = 2;
     int BulletSpeedx = -1;
+    int checkPower;
+    ArrayQueue<Integer> randomQueue = new ArrayQueue<>();
     
     public FallingBullets(int x, int y) {
-        
+   	 
     super(x, y);
-        
+    
+	Random rand = new Random();
+	int randInt = rand.nextInt(4);
+	randomQueue.enqueue(randInt);
     initFallingBullet();
     
     }
     
 private void initFallingBullet() {
-        loadImage("fallingbullet.png");  
+	 int bulletType = randomQueue.dequeue();
+	 if (bulletType == 1) {
+		 loadImage("fallingbullet2.png");
+		 checkPower = 2;
+	 } else if (bulletType == 2) {
+		 loadImage("fallingbullet3.png");
+		 checkPower = 3;
+	 } else {
+		 loadImage("fallingbullet.png");
+		 checkPower = 1;
+	 }
         getImageDimensions();
     }
+
+public int getPower() {
+	return checkPower;
+}
 
 public void move() {
         y += BulletSpeedy;
@@ -38,4 +57,5 @@ public void move() {
             vis = false;
         }
     }
+
 }

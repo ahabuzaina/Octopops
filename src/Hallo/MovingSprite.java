@@ -14,7 +14,12 @@ import javax.swing.JFrame;
 
 public class MovingSprite extends JFrame {
 
-    public MovingSprite() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MovingSprite() {
 
         initUI();
     }

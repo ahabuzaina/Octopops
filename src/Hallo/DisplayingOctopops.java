@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Hallo;
-import java.util.ConcurrentModificationException;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -25,7 +24,11 @@ import java.awt.Rectangle;
  */
 public class DisplayingOctopops extends JPanel implements ActionListener {
 
-    private Octopops Octopops;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Octopops Octopops;
     private BossAi BossAi;
     private Timer timer;
     private final int DELAY = 10;
@@ -35,7 +38,6 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     private final int boss_Y = 500;
     private final int B_WIDTH = 900;
     private final int B_HEIGHT = 300;
-    private ArrayList Bullets1;
     public DisplayingOctopops() {
         character();
         timer = new Timer(DELAY, this);
@@ -44,7 +46,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     }
 
     private void character() {
-    Bullets1 = new ArrayList();
+    new ArrayList<Object>();
         addKeyListener(new Adapter());
         setFocusable(true);
         setBackground(Color.WHITE);
@@ -83,13 +85,13 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
             g2d.drawImage(BossAi.getImage(), 1100, 400, this);
             }
         
-        ArrayList ms = Octopops.getBullets();
+        ArrayList<Bullet> ms = Octopops.getBullets();
         for (Object m1 : ms) {
             Bullet m = (Bullet) m1;
             g2d.drawImage(m.getImage(), m.getX(),500, this);
     }
         
-        ArrayList md = BossAi.getBullets();
+        ArrayList<?> md = BossAi.getBullets();
         for (Object n1 : md) {
             FallingBullets mm = (FallingBullets) n1;
             g2d.drawImage(mm.getImage(), mm.getX(), mm.getY(), this);
@@ -112,7 +114,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
 
      private void updateBullets() {
 
-        ArrayList ms = Octopops.getBullets();
+        ArrayList<Bullet> ms = Octopops.getBullets();
 
         for (int i = 0; i < ms.size(); i++) {
 
@@ -130,7 +132,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
      
      private void updateFallingBullets() {
      
-         ArrayList md = BossAi.getBullets();
+         ArrayList<FallingBullets> md = BossAi.getBullets();
 
         for (int i = 0; i < md.size(); i++) {
 
@@ -154,10 +156,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
             }
      }
      
-     private void updateBoss(){
-     BossAi.ishehit();
-     }
-    	 public void checkCollisions2(){
+     public void checkCollisions2(){
     	if (Octopops.isVisible())
     	     {
              ArrayList<FallingBullets> m = BossAi.getBullets();
@@ -166,7 +165,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
              Rectangle r4 = Octopops.getBounds();
                if (r3.intersects(r4)) {
             	   m.get(i).setVisible(false);
-            	   Octopops.heshit();
+            	   Octopops.heshit(m.get(i).getPower());
             	   if (Octopops.gethp() <= 0){
                        Octopops.setVisible(false);
                        }

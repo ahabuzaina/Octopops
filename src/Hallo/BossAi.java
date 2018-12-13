@@ -16,11 +16,9 @@ import java.util.TimerTask;
  */
 public class BossAi extends Sprite{
     Timer timer;
-    private ArrayList Bullets1;
-    private int hp = 75;
+    private ArrayList<FallingBullets> Bullets1;
+    private int hp = 500;
     Random rng = new Random();
-    private int rngesus = rng.nextInt(100);
-    private int rngesus1 = rng.nextInt(1101);
     private int y = 0;
     
     class RemindTask extends TimerTask {
@@ -31,7 +29,7 @@ public class BossAi extends Sprite{
                 x = rng.nextInt(1400);
                 ArrayList<Integer> track = new ArrayList<>();
                 if(track.contains(x) == false) {
-                    int start = (int)System.currentTimeMillis();
+                    System.currentTimeMillis();
                 	Bullets1.add(new FallingBullets(x,y));
                 }
                 else
@@ -54,7 +52,7 @@ public class BossAi extends Sprite{
     }
    
    private void initBoss() {
-        Bullets1 = new ArrayList();
+        Bullets1 = new ArrayList<FallingBullets>();
         loadImage("Final_Boss.png");  
         getImageDimensions();
         setVisible(true);
@@ -68,12 +66,13 @@ public class BossAi extends Sprite{
     return hp;
     }
     
-    public ArrayList getBullets() {
-        return Bullets1;
+    public ArrayList<FallingBullets> getBullets() {
+    	return Bullets1;
 }
 
     public void pewpew(){
         timer = new Timer();
-        timer.schedule(new RemindTask(), 0, 700);
+        timer.schedule(new RemindTask(), 0, 140);
         }
+    
 }

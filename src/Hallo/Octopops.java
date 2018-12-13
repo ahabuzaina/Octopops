@@ -21,7 +21,7 @@ public class Octopops extends Sprite{
     private int x = 50;
     public int y = 500;
     private Image image;
-    private ArrayList Bullets;
+    private ArrayList<Bullet> Bullets;
     int hp = 3;
     int height = 100;
     int width = 80;
@@ -34,11 +34,11 @@ public class Octopops extends Sprite{
     private void character() {
         ImageIcon i = new ImageIcon("octopops.png");
         image = i.getImage();
-    	Bullets = new ArrayList();
+    	Bullets = new ArrayList<Bullet>();
     }
 
-    public void heshit(){
-        hp = hp - 1;
+    public void heshit(int a){
+        hp = hp - a;
     }
     
     public int gethp(){
@@ -64,7 +64,7 @@ public class Octopops extends Sprite{
         return image;
     }
     
-    public ArrayList getBullets() {
+    public ArrayList<Bullet> getBullets() {
         return Bullets;
 }
 
