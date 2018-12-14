@@ -17,7 +17,7 @@ import java.util.TimerTask;
 public class BossAi extends Sprite{
     Timer timer;
     private ArrayList<FallingBullets> Bullets1;
-    private int hp = 70;
+    private int hp = 200;
     Random rng = new Random();
     private int y = 0;
     
@@ -25,7 +25,7 @@ public class BossAi extends Sprite{
         @Override
         public void run() {
             if (hp >= 1) {
-            for (int n = 0; n < 7; n++){
+            for (int n = 0; n < 1; n++){
                 x = rng.nextInt(1400);
                 ArrayList<Integer> track = new ArrayList<>();
                 if(track.contains(x) == false) {
@@ -66,13 +66,21 @@ public class BossAi extends Sprite{
     return hp;
     }
     
+    public int difficulty(int i) {
+    	if (i > 0) {
+        hp += i;
+        difficulty(i-1);
+    	}
+		return i;
+    }
+    
     public ArrayList<FallingBullets> getBullets() {
     	return Bullets1;
 }
 
     public void pewpew(){
         timer = new Timer();
-        timer.schedule(new RemindTask(), 0, 700);
+        timer.schedule(new RemindTask(), 0, 190);
         }
     
 }

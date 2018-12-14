@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Hallo;
+import java.util.ConcurrentModificationException;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -101,6 +102,7 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
+    	try {
         updateBullets();
         updateFallingBullets();
         checkCollisions();
@@ -110,8 +112,13 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         {
         updateOctopops();
         }
+    	}
+    	catch(ConcurrentModificationException t){
+    		repaint();
+    	}
     }
-
+    
+    
      private void updateBullets() {
         ArrayList ms = Octopops.getBullets();
         for (int i = 0; i < ms.size(); i++) {
@@ -214,7 +221,8 @@ public class DisplayingOctopops extends JPanel implements ActionListener {
         g.drawString(msg, (B_WIDTH - fm.stringWidth(msg)),
                 B_HEIGHT / 2);
     }
-      
+       
+       
     private class Adapter extends KeyAdapter {
 
         @Override

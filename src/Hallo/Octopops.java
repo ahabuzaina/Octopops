@@ -20,9 +20,10 @@ public class Octopops extends Sprite{
     private int dx;
     private int x = 50;
     public int y = 500;
+    public String countdown;
     private Image image;
     private ArrayList<Bullet> Bullets;
-    int hp = 3;
+    int hp = 5;
     int height = 100;
     int width = 80;
     public Octopops(int x, int y) {
@@ -76,7 +77,21 @@ public class Octopops extends Sprite{
             x = Math.min(1000, x);
             dx = -1;
         }
-
+        if (key == KeyEvent.VK_ENTER && countdown == "420") {
+        	System.out.println("blaze it");	 
+        	}
+        
+        if (key == KeyEvent.VK_0 && countdown == "42") {
+        	countdown = "420";
+        }
+        
+        if (key == KeyEvent.VK_2 && countdown == "4") {
+        	countdown = "42";
+        }
+        
+            if (key == KeyEvent.VK_4) {
+            countdown = "4";
+            }
         if (key == KeyEvent.VK_D && x <= 1000) {
             x = Math.max(0, x);
             x = Math.min(1000, x);
