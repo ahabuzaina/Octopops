@@ -29,17 +29,18 @@ public class Sprite {
         this.y = y;
         vis = true;
     }
+
     protected void loadImage(String imageName) {
 
         ImageIcon ii = new ImageIcon(imageName);
         image = ii.getImage();
     }
-    
+
     protected void getImageDimensions() {
 
         width = image.getWidth(null);
         height = image.getHeight(null);
-    }    
+    }
 
     public Image getImage() {
         return image;
@@ -60,6 +61,7 @@ public class Sprite {
     public void setVisible(Boolean visible) {
         vis = visible;
     }
+
     public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);
     }
